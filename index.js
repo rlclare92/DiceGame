@@ -27,34 +27,23 @@ const winOrLose = () => {
         statement.textContent = ("how did you know? Did you cheat?");
         pointScore = 0;
     } else {
-        statement.textContent = ("Play Agina?");
-        pointScore = 0;
+        statement.textContent = ("Play Agina ?");
     }
     scoreAddition()
 }
 
 const scoreAddition = () => {
     // rolls()
-    pointScore += numberRolled
+    pointScore += numberRolled;
     // totalScore.textContent = (`Total score: ${pointScore}`);
 }
 
 rollButton.addEventListener("click", () => {
     rolls()
     winOrLose()
+    console.log("pont score " +  pointScore);
     playerScore.textContent = numberRolled;
     diceImage.style.visibility = "visible";
     diceImage.src = (`Images/dice${numberRolled}.png`);
     totalScore.textContent = (`Your total score is ${pointScore}`);
 })
-
-
-// winOrLose()
-// winOrLose()
-// winOrLose()
-// winOrLose()
-// rolls()
-// rolls()
-// rolls()
-// rolls()
-// winOrLose()
