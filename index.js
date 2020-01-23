@@ -13,6 +13,7 @@ let numberRolled;
 let pointScore = 0;
 
 
+
 const startGame = () => {
     pointScore = 0;
     diceImage.src = (`Images/dice${numberRolled}.png`);
