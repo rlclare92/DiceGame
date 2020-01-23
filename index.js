@@ -10,7 +10,7 @@ diceImage.style.visibility = "hidden";
 // function declarions
 let numberRolled;
 let pointScore = 0;
-
+let startGame;
 
 const rolls = () => {
     numberRolled = (Math.ceil (Math.random() * 6));
