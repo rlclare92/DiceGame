@@ -57,7 +57,7 @@ rollButton.addEventListener("click", () => {
     playerScore.textContent = numberRolled;
     diceImage.style.visibility = "visible";
     diceImage.src = (`Images/dice${numberRolled}.png`);
-    totalScore.textContent = (`Your total score is ${pointScore}`);
+    totalScore.textContent = (`Total score ${pointScore}`);
 })
 
 resetButton.addEventListener("click", () => {

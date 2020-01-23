@@ -7,7 +7,7 @@ body{
 
 p{
     color:white;
-    font-size: 20px;
+    font-size: 30px;
     font-family: 'IBM Plex mono', monospace;
     font-weight: bold;
     text-align: center;
@@ -19,7 +19,7 @@ button{
     margin-right: auto;
      width: 50%;
     color: black;
-    font-size: 15px;
+    font-size: 20px;
     font-family: 'IBM Plex mono', monospace;
     border: 2px dashed black;
     align-items: center;
