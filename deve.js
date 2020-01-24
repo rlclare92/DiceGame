@@ -23,7 +23,7 @@ const startGame = () => {
     playerScore.textContent = "";
 }
 
-let game = () => {
+let gamePlayerTurns = () => {
     if (player1) {
         console.log("player one turn")
         player1 = false
@@ -64,7 +64,7 @@ const scoreAddition = () => {
 rollButton.addEventListener("click", () => {
     rolls()
     winOrLose()
-    console.log("pont score " +  pointScore);
+    console.log("point score " +  pointScore);
     playerScore.textContent = numberRolled;
     diceImage.style.visibility = "visible";
     diceImage.src = (`Images/dice${numberRolled}.png`);

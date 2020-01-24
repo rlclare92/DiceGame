@@ -3,61 +3,96 @@ const resetButton = document.getElementById("resetButton");
 const rollButton = document.getElementById("roll");
 const playerScore = document.getElementById("score");
 const diceImage = document.getElementById("diceImage");
-const totalScore = document.getElementById("totalScore");
+const totalScorePlayer1 = document.getElementById("totalScorePlayer1");
+const totalScorePlayer2 = document.getElementById("totalScorePlayer2");
 const statement = document.getElementById("statement");
+const player = document.getElementById("player")
 
 diceImage.style.visibility = "hidden";
 
 // function declarions
 let numberRolled;
-let pointScore = 0;
+let pointScorePlayer1 = 0;
+let pointScorePlayer2 = 0;
+let player1 = true;
 
 
 
 const startGame = () => {
-    pointScore = 0;
-    diceImage.src = (`Images/dice${numberRolled}.png`);
+    player1 = true;
+    pointScorePlayer1 = 0;
+    pointScorePlayer2 = 0;
+    // diceImage.src = (`Images/dice${numberRolled}.png`);
     diceImage.style.visibility = "hidden";
     statement.textContent = "";
-    totalScore.textContent = "";
+    totalScorePlayer1.textContent = "";
+    totalScorePlayer2.textContent = "";
     // numberRolled.textContent = "";
     playerScore.textContent = "";
 }
 
+let playerTurn = () => {
+    player1 = !player1;
+    // if (player1) {
+    //     console.log("player one turn")
+    //     player1 = false
+    //     // totalScore.textContent = "";
+    // } else {
+    //     console.log("player 2 turn")
+    //     player1 = true
+    //     // totalScore.textContent = "";
+    // }
+}
+
+player.addEventListener("click", () => {
+    playerTurn(player1)
+})
+
+
 const rolls = () => {
     numberRolled = (Math.ceil (Math.random() * 6));
     console.log(numberRolled);
+    // console.log("point score " +  pointScore);
+    switch(player1){
+        case true:
+            pointScorePlayer1 += numberRolled;
+            totalScorePlayer1.textContent = (`Player 1 score ${pointScorePlayer1}`);
+            break;
+        case false:
+            pointScorePlayer2 += numberRolled
+            totalScorePlayer2.textContent = (`Player 2 score ${pointScorePlayer2}`);
+            break;
+        default: break;
+    }
+    playerScore.textContent = numberRolled;
+    diceImage.style.visibility = "visible";
+    diceImage.src = (`Images/dice${numberRolled}.png`);
+
+    // playerTurn.textcontent = pointScore += numberRolled;
+    winOrLose()
 }
 
-const winOrLose = () => {
+const winOrLose = (player1) => {
     // numberRolled = 1;
     // pointScore = 0;
     if(numberRolled == 1){
-        statement.textContent = ("You lose, keep going!");
-        pointScore = 0;
-    } else if (pointScore >= 20){
-        statement.textContent = ("You Win");
-        pointScore = 0;
+        statement.textContent = ("You lose!");
+        pointScorePlayer1 = 0;
+        pointScorePlayer2 = 0;
+        return
+    } else if (pointScorePlayer1 || pointScorePlayer2 >= 20){
+        statement.textContent = ("You Win!");
+        pointScorePlayer1 = 0;
+        pointScorePlayer2 = 0;
     } else {
         statement.textContent = ("Play Again?");
     }
-    scoreAddition()
-}
-
-const scoreAddition = () => {
-    // rolls()
-    pointScore += numberRolled;
-    // totalScore.textContent = (`Total score: ${pointScore}`);
+    totalScorePlayer1.textcontent = pointScorePlayer1 += numberRolled;
+    totalScorePlayer2.textcontent = pointScorePlayer2 += numberRolled;
 }
 
 rollButton.addEventListener("click", () => {
     rolls()
-    winOrLose()
-    console.log("pont score " +  pointScore);
-    playerScore.textContent = numberRolled;
-    diceImage.style.visibility = "visible";
-    diceImage.src = (`Images/dice${numberRolled}.png`);
-    totalScore.textContent = (`Total score ${pointScore}`);
 })
 
 resetButton.addEventListener("click", () => {
