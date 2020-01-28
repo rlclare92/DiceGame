@@ -15,6 +15,7 @@ let numberRolled;
 let pointScorePlayer1 = 0;
 let pointScorePlayer2 = 0;
 let player1 = true;
+/*let player2 = false; try to use a new varible to use player.eventListwners to switch players*/
 
 
 
@@ -33,10 +34,12 @@ const startGame = () => {
 
 let playerTurn = () => {
     player1 = !player1;
+    console.log(playerTurn);
+    
 }
 
 player.addEventListener("click", () => {
-    playerTurn(player1)
+    playerTurn(player1) /*!= playerTurn(player2)*/
 })
 
 
@@ -71,9 +74,11 @@ const winOrLose = (player1) => {
         pointScorePlayer1 = 0;
         pointScorePlayer2 = 0;
         return
-    } else if (pointScorePlayer1 >= 20){
+    } else if (pointScorePlayer1 /*|| != pointScorePlayer2*/  >= 20){
         statement.textContent = ("You Win!");
         pointScorePlayer1 = 0;
+    } else if (pointScorePlayer2 /*|| != pointScorePlayer2*/  >= 20){
+        statement.textContent = ("You Win!");
         pointScorePlayer2 = 0;
     } else {
         statement.textContent = ("Play Again?");
