@@ -33,15 +33,6 @@ const startGame = () => {
 
 let playerTurn = () => {
     player1 = !player1;
-    // if (player1) {
-    //     console.log("player one turn")
-    //     player1 = false
-    //     // totalScore.textContent = "";
-    // } else {
-    //     console.log("player 2 turn")
-    //     player1 = true
-    //     // totalScore.textContent = "";
-    // }
 }
 
 player.addEventListener("click", () => {
@@ -80,7 +71,7 @@ const winOrLose = (player1) => {
         pointScorePlayer1 = 0;
         pointScorePlayer2 = 0;
         return
-    } else if (pointScorePlayer1 || pointScorePlayer2 >= 20){
+    } else if (pointScorePlayer1 >= 20){
         statement.textContent = ("You Win!");
         pointScorePlayer1 = 0;
         pointScorePlayer2 = 0;
